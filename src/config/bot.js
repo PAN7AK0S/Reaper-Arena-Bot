@@ -649,3 +649,23 @@ export function getRandomColor() {
 }
 
 export default botConfig;
+
+@bot.event
+async def on_member_join(member):
+    await member.send(f"Welcome to Reaper Arena  {member.name}")
+@bot.event
+async def on_message(message):
+    if message.author == bot.user:
+        return
+
+    if "goula" in message.content.lower():
+        await message.delete()
+await message.channel.send(f"{message.author.mention} - o goulas den mporei gimnazei gampes!")
+
+bot= commands.Bot(command_prefix='!', intents=intents)
+
+@bot.command()
+async def dm(ctx,*,msg ):
+    await ctx.author.send(f" {msg}")
+
+    bot = commands.Bot(command_prefix='!', intents=intents)
